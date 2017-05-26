@@ -48,39 +48,50 @@ public class Reportes extends AppCompatActivity {
     public void mayorEdad(){
         String mensaje;
         ArrayList<Empleado> e=DatosEmpleados.traerEmpleados(getApplicationContext());
-        Empleado e2=e.get(0);
-        for (int i=1;i<e.size();i++){
-            if (Integer.parseInt(e2.getedad())<Integer.parseInt(e.get(i).getedad())){
-                e2=e.get(i);
+        if (e.size()!=0){
+            Empleado e2=e.get(0);
+            for (int i=1;i<e.size();i++){
+                if (Integer.parseInt(e2.getedad())<Integer.parseInt(e.get(i).getedad())){
+                    e2=e.get(i);
+                }
             }
+            mensaje=res.getString(R.string.mensaje_reporte1)+": "+e2.getNombre()+" "+e2.getApellido();
+        }else {
+            mensaje=res.getString(R.string.no_empleados_registrados);
         }
-        mensaje=res.getString(R.string.mensaje_reporte1)+": "+e2.getNombre()+" "+e2.getApellido();
         new AlertDialog.Builder(this).setMessage(mensaje).setCancelable(true).show();
     }
 
     public void materialCaro(){
         String mensaje;
         ArrayList<Material> m=DatosMateriales.traerMateriales(getApplicationContext());
-        Material m2=m.get(0);
-        for (int i=1;i<m.size();i++){
-            if (Integer.parseInt(m2.getPrecio())<Integer.parseInt(m.get(i).getPrecio())){
-                m2=m.get(i);
+        if (m.size()!=0){
+            Material m2=m.get(0);
+            for (int i=1;i<m.size();i++){
+                if (Integer.parseInt(m2.getPrecio())<Integer.parseInt(m.get(i).getPrecio())){
+                    m2=m.get(i);
+                }
             }
-        }
-        mensaje=res.getString(R.string.mensaje_reporte2)+": "+m2.getNombre();
+            mensaje=res.getString(R.string.mensaje_reporte2)+": "+m2.getNombre();
+        }else mensaje=res.getString(R.string.no_materiales_registrados);
         new AlertDialog.Builder(this).setMessage(mensaje).setCancelable(true).show();
     }
 
     public void clienteComprador(){
         String mensaje;
         ArrayList<Cliente> c=DatosClientes.traerClientes(getApplicationContext());
-        Cliente c2=c.get(0);
-        for (int i=0;i<c.size();i++){
-            if (Integer.parseInt(c2.getNcompras())<Integer.parseInt(c.get(i).getNcompras())){
-                c2=c.get(i);
+        if (c.size()!=0){
+            Cliente c2=c.get(0);
+            for (int i=0;i<c.size();i++){
+                if (Integer.parseInt(c2.getNcompras())<Integer.parseInt(c.get(i).getNcompras())){
+                    c2=c.get(i);
+                }
             }
-        }
-        mensaje=res.getString(R.string.mensaje_reporte3)+": "+c2.getNombre()+" "+c2.getApellido();
+            if (Integer.parseInt(c2.getNcompras())!=0){
+                mensaje=res.getString(R.string.mensaje_reporte3)+": "+c2.getNombre()+" "+c2.getApellido();
+            }else mensaje=res.getString(R.string.no_compras_registradas);
+
+        }else mensaje=res.getString(R.string.no_clientes_registrados);
         new AlertDialog.Builder(this).setMessage(mensaje).setCancelable(true).show();
     }
 }

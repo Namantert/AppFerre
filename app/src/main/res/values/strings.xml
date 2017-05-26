@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppFerre</string>
+    <string name="app_name">App</string>
     <string name="cedula">Cedula</string>
     <string name="buscar">BUSCAR</string>
     <string name="nombre">Nombre</string>
@@ -103,7 +103,7 @@
     <string name="comprar">COMPRAR</string>
 
     <!--Spiner de Material Tipo -->
-    <string name="vacio"></string>
+    <string name="vacio" translatable="false"></string>
     <string name="cerradura">Cerradura</string>
     <string name="electricidad">Electricidad</string>
     <string name="tornilleria">Tornilleria</string>
@@ -162,7 +162,7 @@
     <string name="cliente_existe">No hay ningun cliente registrado con esa cedula</string>
     <string name="mensaje_confirmacion_cliente">¿Está seguro que desea eliminar este cliente?</string>
     <string name="cliente_eliminado">Cliente eliminado exitosamente</string>
-    <string name="cliente_modificado">Mateial modificado exitosamente</string>
+    <string name="cliente_modificado">Material modificado exitosamente</string>
     <string name="numero_compras">Compras</string>
     <string name="nombre_cliente">Nombre del cliente</string>
 
@@ -181,6 +181,11 @@
     <string name="mensaje_reporte1">El empleado con mayor edad es</string>
     <string name="mensaje_reporte2">El material mas caro es</string>
     <string name="mensaje_reporte3">El cliente que mas ha comprado es</string>
+    <string name="no_empleados_registrados">No hay empleados registrados</string>
+    <string name="no_materiales_registrados">No hay materiales registrados</string>
+    <string name="no_clientes_registrados">No hay clientes registrados</string>
+    <string name="no_compras_registradas">No hay compras registradas</string>
+
     <string name="iniciarsession">INICIA SESION</string>
     <string name="contraseña">Contraseña</string>
     <string name="entrar">Entrar</string>
@@ -190,14 +195,14 @@
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
+    <string name="prompt_password" translatable="false">Password (optional)</string>
+    <string name="action_sign_in" translatable="false">Sign in or register</string>
+    <string name="action_sign_in_short" translatable="false">Sign in</string>
+    <string name="error_invalid_email" translatable="false">This email address is invalid</string>
+    <string name="error_invalid_password" translatable="false">This password is too short</string>
+    <string name="error_incorrect_password" translatable="false">This password is incorrect</string>
+    <string name="error_field_required" translatable="false">This field is required</string>
+    <string name="permission_rationale" translatable="false">"Contacts permissions are needed for providing email
         completions."
     </string>
 

@@ -20,6 +20,7 @@ public class Registrar_Material extends AppCompatActivity implements AdapterView
     private Resources res;
     private String[] opc,opc2;
     private ArrayAdapter<CharSequence> adapter,adapter2;
+    private int sw0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,21 +38,24 @@ public class Registrar_Material extends AppCompatActivity implements AdapterView
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         comboTipo.setAdapter(adapter);
         comboTipo.setOnItemSelectedListener(this);
+        sw0=0;
     }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-        int[] localidades={R.array.opciones_cerradura,R.array.opciones_electricidad,R.array.opciones_tornillos};
-        adapter2 = ArrayAdapter.createFromResource(
-                this,
-                localidades[position],//En función de la provincia, se carga el array que corresponda del XML
-                android.R.layout.simple_spinner_item);
+        if (sw0==0){
+            int[] localidades={R.array.opciones_cerradura,R.array.opciones_electricidad,R.array.opciones_tornillos};
+            adapter2 = ArrayAdapter.createFromResource(
+                    this,
+                    localidades[position],//En función de la provincia, se carga el array que corresponda del XML
+                    android.R.layout.simple_spinner_item);
 
-        //Se carga el tipo de vista para el adaptador
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            //Se carga el tipo de vista para el adaptador
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        //Se aplica el adaptador al Spinner de localidades
-        comboNombre.setAdapter(adapter2);
+            //Se aplica el adaptador al Spinner de localidades
+            comboNombre.setAdapter(adapter2);
+        }
     }
 
     @Override
@@ -120,6 +124,7 @@ public class Registrar_Material extends AppCompatActivity implements AdapterView
                 Toast.makeText(getApplicationContext(), res.getString(R.string.material_guardado),
                         Toast.LENGTH_SHORT).show();
                 limpiar();
+
             }
         }
     }
@@ -159,9 +164,18 @@ public class Registrar_Material extends AppCompatActivity implements AdapterView
                 cajaPrecio.setText(m.getPrecio());
                 cajaCantidad.setText(m.getCantidad());
 
-                if (m.getTipo().equalsIgnoreCase(res.getString(R.string.cerradura)))comboTipo.setSelection(0);
-                if (m.getTipo().equalsIgnoreCase(res.getString(R.string.electricidad)))comboTipo.setSelection(1);
-                if (m.getTipo().equalsIgnoreCase(res.getString(R.string.tornilleria)))comboTipo.setSelection(2);
+                if (m.getTipo().equalsIgnoreCase(res.getString(R.string.cerradura))){
+                    comboTipo.setSelection(0);
+                    sw0=1;
+                }
+                if (m.getTipo().equalsIgnoreCase(res.getString(R.string.electricidad))){
+                    comboTipo.setSelection(1);
+                    sw0=1;
+                }
+                if (m.getTipo().equalsIgnoreCase(res.getString(R.string.tornilleria))){
+                    comboTipo.setSelection(2);
+                    sw0=1;
+                }
 
                 if (m.getNombre().equalsIgnoreCase(res.getString(R.string.cerradura_alta_ceguridad)))comboNombre.setSelection(0);
                 if (m.getNombre().equalsIgnoreCase(res.getString(R.string.cerradura_digital)))comboNombre.setSelection(1);
