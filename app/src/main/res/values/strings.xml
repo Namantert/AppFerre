@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">App</string>
+    <string name="app_name">AppFerre</string>
     <string name="cedula">Cedula</string>
     <string name="buscar">BUSCAR</string>
     <string name="nombre">Nombre</string>

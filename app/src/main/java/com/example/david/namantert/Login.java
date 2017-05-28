@@ -61,6 +61,7 @@ public class Login extends AppCompatActivity {
                 startActivity(i);
                 Toast.makeText(getApplicationContext(), res.getString(R.string.registroexitoso),
                         Toast.LENGTH_SHORT).show();
+                finish();
             }else{
                 e = DatosEmpleados.buscarEmpleados(getApplicationContext(), cajaCedula.getText().toString());
                 e1 = DatosEmpleados.buscarEmpleadosLogin(getApplicationContext(), contraseña.getText().toString());
@@ -69,6 +70,7 @@ public class Login extends AppCompatActivity {
                     startActivity(in);
                     Toast.makeText(getApplicationContext(), res.getString(R.string.registroexitoso),
                             Toast.LENGTH_SHORT).show();
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(), res.getString(R.string.registronoexitoso),
                             Toast.LENGTH_SHORT).show();

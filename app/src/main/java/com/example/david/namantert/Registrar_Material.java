@@ -139,6 +139,11 @@ public class Registrar_Material extends AppCompatActivity implements AdapterView
     }
     public void borrar(View v){
         limpiar();
+        sw0=0;
+        comboTipo.setEnabled(true);
+        comboTipo.setClickable(true);
+        comboNombre.setEnabled(true);
+        comboNombre.setClickable(true);
     }
 
     public int fotoMaterial(){
@@ -163,33 +168,47 @@ public class Registrar_Material extends AppCompatActivity implements AdapterView
             if (m!=null){
                 cajaPrecio.setText(m.getPrecio());
                 cajaCantidad.setText(m.getCantidad());
-
+                sw0=1;
                 if (m.getTipo().equalsIgnoreCase(res.getString(R.string.cerradura))){
                     comboTipo.setSelection(0);
-                    sw0=1;
+                    opc2=res.getStringArray(R.array.opciones_cerradura);
+                    adapter2=new ArrayAdapter<CharSequence>(this,android.R.layout.simple_list_item_1,opc2);
+                    comboNombre.setAdapter(adapter2);
+
+                    if (m.getNombre().equalsIgnoreCase(res.getString(R.string.cerradura_alta_ceguridad)))comboNombre.setSelection(0);
+                    if (m.getNombre().equalsIgnoreCase(res.getString(R.string.cerradura_digital)))comboNombre.setSelection(1);
+                    if (m.getNombre().equalsIgnoreCase(res.getString(R.string.cerradura_manija)))comboNombre.setSelection(2);
+                    if (m.getNombre().equalsIgnoreCase(res.getString(R.string.cerradura_pomo)))comboNombre.setSelection(3);
+
                 }
                 if (m.getTipo().equalsIgnoreCase(res.getString(R.string.electricidad))){
                     comboTipo.setSelection(1);
-                    sw0=1;
+                    opc2=res.getStringArray(R.array.opciones_electricidad);
+                    adapter2=new ArrayAdapter<CharSequence>(this,android.R.layout.simple_list_item_1,opc2);
+                    comboNombre.setAdapter(adapter2);
+
+                    if (m.getNombre().equalsIgnoreCase(res.getString(R.string.canalizacion)))comboNombre.setSelection(0);
+                    if (m.getNombre().equalsIgnoreCase(res.getString(R.string.extenciones)))comboNombre.setSelection(1);
+                    if (m.getNombre().equalsIgnoreCase(res.getString(R.string.tacos)))comboNombre.setSelection(2);
+
                 }
                 if (m.getTipo().equalsIgnoreCase(res.getString(R.string.tornilleria))){
                     comboTipo.setSelection(2);
-                    sw0=1;
+                    opc2=res.getStringArray(R.array.opciones_tornillos);
+                    adapter2=new ArrayAdapter<CharSequence>(this,android.R.layout.simple_list_item_1,opc2);
+                    comboNombre.setAdapter(adapter2);
+
+                    if (m.getNombre().equalsIgnoreCase(res.getString(R.string.chazos_anclajes)))comboNombre.setSelection(0);
+                    if (m.getNombre().equalsIgnoreCase(res.getString(R.string.clavos)))comboNombre.setSelection(1);
+                    if (m.getNombre().equalsIgnoreCase(res.getString(R.string.remaches)))comboNombre.setSelection(2);
+                    if (m.getNombre().equalsIgnoreCase(res.getString(R.string.tornillos)))comboNombre.setSelection(3);
+
                 }
 
-                if (m.getNombre().equalsIgnoreCase(res.getString(R.string.cerradura_alta_ceguridad)))comboNombre.setSelection(0);
-                if (m.getNombre().equalsIgnoreCase(res.getString(R.string.cerradura_digital)))comboNombre.setSelection(1);
-                if (m.getNombre().equalsIgnoreCase(res.getString(R.string.cerradura_manija)))comboNombre.setSelection(2);
-                if (m.getNombre().equalsIgnoreCase(res.getString(R.string.cerradura_pomo)))comboNombre.setSelection(3);
-
-                if (m.getNombre().equalsIgnoreCase(res.getString(R.string.canalizacion)))comboNombre.setSelection(0);
-                if (m.getNombre().equalsIgnoreCase(res.getString(R.string.extenciones)))comboNombre.setSelection(1);
-                if (m.getNombre().equalsIgnoreCase(res.getString(R.string.tacos)))comboNombre.setSelection(2);
-
-                if (m.getNombre().equalsIgnoreCase(res.getString(R.string.chazos_anclajes)))comboNombre.setSelection(0);
-                if (m.getNombre().equalsIgnoreCase(res.getString(R.string.clavos)))comboNombre.setSelection(1);
-                if (m.getNombre().equalsIgnoreCase(res.getString(R.string.remaches)))comboNombre.setSelection(2);
-                if (m.getNombre().equalsIgnoreCase(res.getString(R.string.tornillos)))comboNombre.setSelection(3);
+                comboTipo.setEnabled(false);
+                comboTipo.setClickable(false);
+                comboNombre.setEnabled(false);
+                comboNombre.setClickable(false);
             }else {
                 Toast.makeText(getApplicationContext(), res.getString(R.string.error_codigo_no_existente),
                         Toast.LENGTH_SHORT).show();
@@ -214,6 +233,11 @@ public class Registrar_Material extends AppCompatActivity implements AdapterView
 
                         m.eliminar(getApplicationContext());
                         limpiar();
+                        sw0=0;
+                        comboTipo.setEnabled(true);
+                        comboTipo.setClickable(true);
+                        comboNombre.setEnabled(true);
+                        comboNombre.setClickable(true);
                         Toast.makeText(getApplicationContext(), res.getString(R.string.material_eliminado),
                                 Toast.LENGTH_SHORT).show();
                     }
@@ -250,6 +274,11 @@ public class Registrar_Material extends AppCompatActivity implements AdapterView
                 Toast.makeText(getApplicationContext(), res.getString(R.string.material_modificado),
                         Toast.LENGTH_SHORT).show();
                 limpiar();
+                sw0=0;
+                comboTipo.setEnabled(true);
+                comboTipo.setClickable(true);
+                comboNombre.setEnabled(true);
+                comboNombre.setClickable(true);
             }else {
                 Toast.makeText(getApplicationContext(), res.getString(R.string.error_codigo_no_existente),
                         Toast.LENGTH_SHORT).show();
