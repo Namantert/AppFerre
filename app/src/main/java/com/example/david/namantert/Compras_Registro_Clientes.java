@@ -256,6 +256,7 @@ public class Compras_Registro_Clientes extends AppCompatActivity {
                 b.putString("cedula",c.getCedula());
                 i.putExtras(b);
                 startActivity(i);
+                finish();
             }else {
                 Toast.makeText(getApplicationContext(), res.getString(R.string.cliente_existe),
                         Toast.LENGTH_SHORT).show();

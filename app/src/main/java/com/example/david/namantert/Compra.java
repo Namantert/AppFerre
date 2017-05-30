@@ -39,6 +39,18 @@ public class Compra extends AppCompatActivity {
         tabla();
     }
 
+    @Override
+    public void onBackPressed(){
+        ArrayList<CarroCompra> carroCompras=DatosCarrosCompras.traerCarrosCompras(getApplicationContext());
+        if (carroCompras.size()!=0){
+            for (int i=0;i<carroCompras.size();i++){
+                carroCompras.get(i).eliminar(getApplicationContext());
+            }
+        }
+        startActivity(i);
+        finish();
+    }
+
     public void tabla(){
         tabla = (TableLayout) findViewById(R.id.tblCarroCompra);
         carr = DatosCarrosCompras.traerCarrosCompras(getApplicationContext());
@@ -153,6 +165,11 @@ public class Compra extends AppCompatActivity {
         if (cajaPrecio.getText().toString().isEmpty()){
             cajaCodigo.setError(res.getString(R.string.haga_busqueda));
             cajaCodigo.requestFocus();
+            return false;
+        }
+        if (Integer.parseInt(cajaCantidad.getText().toString())==0){
+            cajaCantidad.setError(res.getString(R.string.error_cantidad_igual_cero));
+            cajaCantidad.requestFocus();
             return false;
         }
         return true;

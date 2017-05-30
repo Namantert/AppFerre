@@ -109,4 +109,6 @@
     <string name="no_compras_registradas">No registered purchases</string>
     <string name="no_empleados_registrados">No registered employees</string>
     <string name="no_materiales_registrados">There are no registered materials</string>
+    <string name="error_cantidad_igual_cero">Enter a quantity other than 0</string>
+    <string name="error_precio_igual_cero">Enter a different price than 0</string>
 </resources>

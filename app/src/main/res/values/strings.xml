@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppFerre</string>
+    <string name="app_name">FerreApp</string>
     <string name="cedula">Cedula</string>
     <string name="buscar">BUSCAR</string>
     <string name="nombre">Nombre</string>
@@ -97,7 +97,7 @@
     <string name="error_cajacontraseña">Por favor digite la contraseña</string>
     <string name="error_cajatelefono">Por favor digite la telefono</string>
     <string name="error_cedula_existente">La cedula ya existe</string>
-    <string name="error_cedula_no_existente">La cedula dijitada no existe</string>
+    <string name="error_cedula_no_existente">La cedula digitada no existe</string>
     <string name="siguiente">SIGUIENTE</string>
     <string name="agregar">AGREGAR</string>
     <string name="comprar">COMPRAR</string>
@@ -143,11 +143,13 @@
     </string-array>
 
     <!--Errores de material-->
-    <string name="error_codigo">Dijite el codigo</string>
-    <string name="error_precio">Dijite el precio</string>
-    <string name="error_cantidad">Dijite la cantidad</string>
-    <string name="error_codigo_existente">El codigo dijitado ya existe</string>
-    <string name="error_codigo_no_existente">El codigo dijitado no existe</string>
+    <string name="error_codigo">Digite el codigo</string>
+    <string name="error_precio">Digite el precio</string>
+    <string name="error_cantidad">Digite la cantidad</string>
+    <string name="error_cantidad_igual_cero">Digite una cantidad diferente a 0</string>
+    <string name="error_precio_igual_cero">Digite un precio diferente a 0</string>
+    <string name="error_codigo_existente">El codigo digitado ya existe</string>
+    <string name="error_codigo_no_existente">El codigo digitado no existe</string>
     <string name="haga_busqueda">Por favor haga la busqueda</string>
 
     <!--Mensajes de material-->

@@ -79,6 +79,16 @@ public class Registrar_Material extends AppCompatActivity implements AdapterView
             cajaCantidad.requestFocus();
             return false;
         }
+        if (Integer.parseInt(cajaPrecio.getText().toString())==0){
+            cajaPrecio.setError(res.getString(R.string.error_precio_igual_cero));
+            cajaPrecio.requestFocus();
+            return false;
+        }
+        if (Integer.parseInt(cajaCantidad.getText().toString())==0){
+            cajaCantidad.setError(res.getString(R.string.error_cantidad_igual_cero));
+            cajaCantidad.requestFocus();
+            return false;
+        }
         return true;
     }
 
